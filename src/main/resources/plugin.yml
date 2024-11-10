@@ -1,0 +1,14 @@
+name: AdvancedAutoPromote
+version: '1.0.0-SNAPSHOT'
+main: io.ethansmith.advancedautopromote.AdvancedAutoPromote
+api-version: '1.21'
+authors: [ ephan ]
+description: Many different ways to promote your players including Money, Signs, and Time!
+website: io.ethan-smith
+depend:
+  - Vault
+  - LuckPerms
+commands:
+  rankup:
+    description: Rank up to the next rank
+    usage: /rankup

@@ -1,0 +1,10 @@
+# This makes it where players can't purchase any rank they want
+# just because they can afford it. They must rankup through the ranks in order.
+rankup_only: true
+
+groups:
+  peasant: 1000
+  knight: 2000
+  lord: 3000
+  king: 4000
+  emperor: 5000
