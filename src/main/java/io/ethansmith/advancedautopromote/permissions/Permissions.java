@@ -71,7 +71,12 @@ public class Permissions {
             return null;
         }
 
-        return promotionTrack.getNext(currentGroup);
+        String nextGroup = promotionTrack.getNext(currentGroup);
+
+        if (nextGroup == null && Permissions.getCurrentGroup(player).equals("default"))
+            return Permissions.getConfiguredGroups().keySet().iterator().next();
+
+        return nextGroup;
     }
 
     private static void getConfigGroups() {

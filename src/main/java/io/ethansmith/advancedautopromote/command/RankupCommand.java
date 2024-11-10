@@ -21,9 +21,7 @@ public class RankupCommand implements CommandExecutor {
 
         String nextGroup = Permissions.getNextGroup(player);
 
-        if (nextGroup == null && Permissions.getCurrentGroup(player).equals("default")) {
-            nextGroup = Permissions.getConfiguredGroups().keySet().iterator().next();
-        } else if (nextGroup == null) {
+        if (nextGroup == null) {
             player.sendMessage(ChatColor.RED + "You are already at the highest rank!");
             return true;
         }
