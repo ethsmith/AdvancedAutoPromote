@@ -13,6 +13,9 @@ commands:
     description: Rank up to the next rank
     usage: /rankup
     permission: aap.rankup
+  buy-rank:
+    description: Buy a rank
+    usage: /buy-rank <rank>
 
 permissions:
   aap.buy.rankName:
