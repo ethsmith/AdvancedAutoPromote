@@ -19,6 +19,11 @@ public class RankupCommand implements CommandExecutor {
             return true;
         }
 
+        if (!player.hasPermission("aap.rankup")) {
+            player.sendMessage(ChatColor.RED + "You do not have permission to rank up!");
+            return true;
+        }
+
         String nextGroup = Permissions.getNextGroup(player);
 
         if (nextGroup == null) {

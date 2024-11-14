@@ -57,6 +57,31 @@ public class Permissions {
         return result.wasSuccessful();
     }
 
+    public static boolean promotePlayer(Player player, String group) {
+        String currentGroup = getCurrentGroup(player);
+
+        if (plugin.getConfig().getBoolean("rankup-only")) {
+            if (getNextGroup(player) != null && !getNextGroup(player).equalsIgnoreCase(group))
+                return false;
+        }
+
+        while (!currentGroup.equalsIgnoreCase(group)) {
+            if (getNextGroup(player) == null) {
+                plugin.getLogger().severe("Failed to promote player " + player.getName() + " to group " + group + "!");
+                return false;
+            }
+
+            if (!promotePlayer(player)) return false;
+            currentGroup = getCurrentGroup(player);
+        }
+
+        return true;
+    }
+
+    public static int getGroupIndex(String group) {
+        return new ArrayList<>(configuredGroups.keySet()).indexOf(group);
+    }
+
     public static String getCurrentGroup(Player player) {
         User user = luckPermsProvider.getPlayerAdapter(Player.class).getUser(player);
         return user.getPrimaryGroup();
@@ -73,7 +98,7 @@ public class Permissions {
 
         String nextGroup = promotionTrack.getNext(currentGroup);
 
-        if (nextGroup == null && Permissions.getCurrentGroup(player).equals("default"))
+        if (nextGroup == null && Permissions.getCurrentGroup(player).equalsIgnoreCase("default"))
             return Permissions.getConfiguredGroups().keySet().iterator().next();
 
         return nextGroup;

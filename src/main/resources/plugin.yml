@@ -12,3 +12,18 @@ commands:
   rankup:
     description: Rank up to the next rank
     usage: /rankup
+    permission: aap.rankup
+
+permissions:
+  aap.buy.rankName:
+    description: Allows the player to buy the rank <rank>
+    default: false
+  aap.rankup:
+    description: Allows the player to rank up
+    default: true
+  aap.sign.create:
+    description: Allows the player to create a sign to buy a rank
+    default: false
+  aap.sign.use:
+    description: Allows the player to use a sign to buy a rank
+    default: true

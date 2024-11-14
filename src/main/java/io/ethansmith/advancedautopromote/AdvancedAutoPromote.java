@@ -1,5 +1,6 @@
 package io.ethansmith.advancedautopromote;
 
+import io.ethansmith.advancedautopromote.command.BuyCommand;
 import io.ethansmith.advancedautopromote.command.RankupCommand;
 import io.ethansmith.advancedautopromote.economy.Economy;
 import io.ethansmith.advancedautopromote.permissions.Permissions;
@@ -23,7 +24,13 @@ public final class AdvancedAutoPromote extends JavaPlugin {
         getLogger().info("Initializing permissions manager...");
         Permissions.init();
 
-        getCommand("rankup").setExecutor(new RankupCommand());
+        if (getConfig().getBoolean("rankup-enabled"))
+            getCommand("rankup").setExecutor(new RankupCommand());
+
+        if (getConfig().getBoolean("buy-rank-enabled")) {
+            getCommand("buy-rank").setExecutor(new BuyCommand());
+            getCommand("buy-rank").setTabCompleter(new BuyCommand());
+        }
     }
 
     @Override

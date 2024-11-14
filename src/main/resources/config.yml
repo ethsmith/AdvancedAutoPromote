@@ -1,6 +1,10 @@
 # This makes it where players can't purchase any rank they want
-# just because they can afford it. They must rankup through the ranks in order.
-rankup_only: true
+# even if they can afford it. They must rank up through the ranks in order.
+rankup-only: true
+
+rankup-enabled: true
+buy-rank-enabled: true
+sign-rankup-enabled: true
 
 groups:
   peasant: 1000
