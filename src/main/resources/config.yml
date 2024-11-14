@@ -1,6 +1,6 @@
 # This makes it where players can't purchase any rank they want
 # even if they can afford it. They must rank up through the ranks in order.
-rankup-only: true
+rankup-only: false
 
 rankup-enabled: true
 buy-rank-enabled: true
